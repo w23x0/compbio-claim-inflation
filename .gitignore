@@ -24,7 +24,7 @@ env/
 htmlcov/
 
 # --- Data: source and derived data are never committed -------------------
-data/
+data/*
 !data/README.md
 
 # --- Runtime outputs -----------------------------------------------------
