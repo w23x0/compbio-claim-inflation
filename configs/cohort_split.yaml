@@ -1,0 +1,28 @@
+version: 1
+snapshot: '2026-11-01'
+frozen: true
+rule: 'deterministic: events/n desc; dev then visible_eval then heldout'
+roles:
+  METABRIC: dev
+  GSE96058: dev
+  TCGA-BRCA: dev
+  GSE20685: visible_eval
+  GSE7390: visible_eval
+  GSE42568: heldout
+  GSE58812: heldout
+  TCGA-KIRC: dev
+  GSE337928: dev
+  CPTAC-KIRC: visible_eval
+  E-MTAB-1980: heldout
+  TCGA-LIHC: dev
+  GSE14520: dev
+  LIRI-JP: visible_eval
+  GSE10141: visible_eval
+  GSE76427: heldout
+  GSE68465: dev
+  GSE37745: dev
+  GSE26939: visible_eval
+  GSE50081: visible_eval
+  GSE13213: heldout
+  GSE31210: heldout
+split_hash: sha256:65e3571a9d7d2b37309aa106b2545925abc1b6cdabd9cfffac92de1d007a9973

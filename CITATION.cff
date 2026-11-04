@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the repository."
+title: "compbio-claim-inflation: ground truth, detector and red/blue harness for inflation in computational-biology claims"
+type: software
+authors:
+  - name: "compbio-claim-inflation contributors"
+license: MIT
+keywords:
+  - computational biology
+  - reproducibility
+  - claim inflation
+  - red teaming
+  - survival analysis
+abstract: >-
+  A harness that re-analyses public cancer cohorts to measure how inflated a
+  published prognostic claim is, trains a content-only detector on those
+  labels, and runs an isolated red-team / blue-team loop against the detector.

@@ -1,0 +1,40 @@
+# Detector and scoring parameters.  `inflation_scale` is s in
+# inflation = tanh(max(0, r - mu) / s); ln(2) makes a reported HR twice the
+# pooled independent HR map to tanh(1) ~= 0.762.
+version: 1
+engine_version: "gt-1.1.0"
+detector_version: "det-1.1.0"
+inflation_scale: 0.6931471805599453
+weights:
+  independent_support: 0.50
+  multiverse_support: 0.30
+  shrinkage: 0.20
+# Written by P2 calibration; when present and `use_calibrated_weights` is true
+# the engine uses these instead of the initial weights above.
+use_calibrated_weights: false
+calibrated_weights: null
+lambda_flag_penalty: 3.0
+batch_max_flagged_fraction: 0.10
+detector:
+  fpr_targets: [0.01, 0.05]
+  primary_fpr: 0.05
+  label_min_inflation: 0.20
+  label_min_z: 1.00
+  max_context_weight: 0.50
+  context_weight_slope: 1.00
+  max_combined_delta: 0.20
+  realism_threshold: 0.55
+  duplicate_jaccard: 0.90
+  concentration_limit: 0.80
+  min_events: 15
+gt:
+  high_min_k: 3
+  medium_min_k: 2
+  out_of_pool_confidence_cap: medium
+  min_samples_per_cohort: 80
+  min_events_per_cohort: 15
+  direction_min_effect: 0.0
+  reported_ci_alpha: 0.05
+redteam:
+  score_visible_only: true
+  watermark: "INTERNAL RED-TEAM ARTIFACT - NOT REAL RESEARCH"

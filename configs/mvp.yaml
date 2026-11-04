@@ -1,0 +1,12 @@
+# MVP configuration. Deterministic defaults; no synthetic data path.
+version: 1
+snapshot: "2026-11-01"
+seed: 20261031
+asof_variant: "pub_plus_3y"
+cancers:
+  - LIHC
+  - BRCA
+  - LUAD
+  - KIRC
+cohorts:
+  per_cancer: 9

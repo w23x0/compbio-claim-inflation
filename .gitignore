@@ -1,0 +1,45 @@
+# --- Secrets and local configuration -------------------------------------
+secrets/
+*.env
+.env
+*.token
+credentials*
+
+# --- Python --------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+
+# --- Tooling caches ------------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Data: source and derived data are never committed -------------------
+data/
+!data/README.md
+
+# --- Runtime outputs -----------------------------------------------------
+logs/
+models/
+redteam_artifacts/
+.worker_view/
+
+# --- Generated reports: curated markdown/figure stay, data dumps do not --
+reports/*
+!reports/*.md
+!reports/*.svg
+
+# --- OS / editor ---------------------------------------------------------
+.DS_Store
+*.swp
+.idea/
+.vscode/

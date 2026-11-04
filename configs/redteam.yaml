@@ -1,0 +1,13 @@
+# Red-team harness settings (P6).  Sandbox uses bubblewrap when available:
+# eval_restricted, held-out data, configs, and grader secrets are masked; only
+# dev cohorts and the worker's own artifact directory are mounted writable.
+version: 1
+workers: 8
+rounds: 3
+reports_per_batch: 5
+family_quota: 0.30
+seed: 20261031
+sandbox: true
+worker_timeout_seconds: 900
+max_candidate_analyses: 8  # LLM monitor calls are expensive
+family_holdout_fraction: 0.20

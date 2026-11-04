@@ -1,0 +1,136 @@
+version: 1
+snapshot: '2026-11-01'
+source: public_geo
+cohorts:
+- cohort_id: METABRIC
+  cancer_type: BRCA
+  accession: brca_metabric
+  n: 1979
+  events_os: 1143
+  platform: Illumina_HumanHT-12_v3
+- cohort_id: GSE96058
+  cancer_type: BRCA
+  accession: GSE96058
+  n: 3069
+  events_os: 322
+  platform: GPL11154
+- cohort_id: TCGA-BRCA
+  cancer_type: BRCA
+  accession: TCGA-BRCA
+  n: 1080
+  events_os: 151
+  platform: IlluminaHiSeq_RNASeqV2
+- cohort_id: GSE20685
+  cancer_type: BRCA
+  accession: GSE20685
+  n: 327
+  events_os: 83
+  platform: GPL570
+- cohort_id: GSE7390
+  cancer_type: BRCA
+  accession: GSE7390
+  n: 198
+  events_os: 56
+  platform: GPL96
+- cohort_id: GSE42568
+  cancer_type: BRCA
+  accession: GSE42568
+  n: 104
+  events_os: 35
+  platform: GPL570
+- cohort_id: GSE58812
+  cancer_type: BRCA
+  accession: GSE58812
+  n: 107
+  events_os: 29
+  platform: GPL570
+- cohort_id: TCGA-KIRC
+  cancer_type: KIRC
+  accession: TCGA-KIRC
+  n: 531
+  events_os: 175
+  platform: Illumina HiSeq 2000 RNA-seq (Xena HiSeqV2)
+- cohort_id: GSE337928
+  cancer_type: KIRC
+  accession: GSE337928
+  n: 127
+  events_os: 56
+  platform: GPL24676 (Illumina NovaSeq 6000, RNA-seq)
+- cohort_id: CPTAC-KIRC
+  cancer_type: KIRC
+  accession: GDC:CPTAC-3 kidney
+  n: 199
+  events_os: 32
+  platform: GDC CPTAC-3 RNA-seq (Illumina NovaSeq, STAR - Counts)
+- cohort_id: E-MTAB-1980
+  cancer_type: KIRC
+  accession: E-MTAB-1980
+  n: 101
+  events_os: 23
+  platform: Agilent-014850 Whole Human Genome 4x44K (A-MEXP-2183)
+- cohort_id: TCGA-LIHC
+  cancer_type: LIHC
+  accession: TCGA-LIHC
+  n: 365
+  events_os: 130
+  platform: Illumina HiSeq (RNA-seq)
+- cohort_id: GSE14520
+  cancer_type: LIHC
+  accession: GSE14520
+  n: 242
+  events_os: 96
+  platform: GPL3921+GPL571
+- cohort_id: LIRI-JP
+  cancer_type: LIHC
+  accession: ICGC:LIRI-JP (release 28, open)
+  n: 240
+  events_os: 43
+  platform: Illumina HiSeq RNA-Seq
+- cohort_id: GSE10141
+  cancer_type: LIHC
+  accession: GSE10141
+  n: 80
+  events_os: 32
+  platform: GPL5474
+- cohort_id: GSE76427
+  cancer_type: LIHC
+  accession: GSE76427
+  n: 115
+  events_os: 23
+  platform: GPL10558
+- cohort_id: GSE68465
+  cancer_type: LUAD
+  accession: GSE68465
+  n: 442
+  events_os: 236
+  platform: GPL96
+- cohort_id: GSE37745
+  cancer_type: LUAD
+  accession: GSE37745
+  n: 106
+  events_os: 77
+  platform: GPL570
+- cohort_id: GSE26939
+  cancer_type: LUAD
+  accession: GSE26939
+  n: 115
+  events_os: 66
+  platform: GPL9053
+- cohort_id: GSE50081
+  cancer_type: LUAD
+  accession: GSE50081
+  n: 128
+  events_os: 52
+  platform: GPL570
+- cohort_id: GSE13213
+  cancer_type: LUAD
+  accession: GSE13213
+  n: 117
+  events_os: 49
+  platform: GPL6480
+- cohort_id: GSE31210
+  cancer_type: LUAD
+  accession: GSE31210
+  n: 204
+  events_os: 30
+  platform: GPL570

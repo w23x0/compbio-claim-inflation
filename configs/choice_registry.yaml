@@ -1,0 +1,191 @@
+# Choice registry (spec M2 / C5).
+#
+# Every analysis choice a red-team worker may use is listed here, with at least
+# one methodological literature precedent.  `in_reference_set` marks choices
+# that are pre-specifiable without looking at the outcome; only those enter the
+# multiverse baseline.  Outcome-dependent choices (optimal cutpoint, subgroup
+# selection, endpoint switching, probe selection by significance) are legal for
+# red-team use but are excluded from the reference set (R3).
+version: 1
+choices:
+  - id: grouping.median
+    dimension: grouping
+    value: median
+    label: "Median split (high vs low)"
+    contrast_type: dichotomous
+    in_reference_set: true
+    references:
+      - "Irizarry et al. 2003, Biostatistics 4:249 (RMA preprocessing)"
+      - "Camp et al. 2004, Clin Cancer Res 10:7252 (X-tile; outcome-dependent cutpoints are a documented practice)"
+  - id: grouping.tertile
+    dimension: grouping
+    value: tertile
+    label: "Top vs bottom tertile"
+    contrast_type: dichotomous
+    in_reference_set: true
+    references:
+      - "Taylor et al. 2010, J Clin Oncol 28:2784 (prespecified quantile groups)"
+  - id: grouping.per_sd
+    dimension: grouping
+    value: per_sd
+    label: "Continuous expression, per 1 SD"
+    contrast_type: continuous
+    in_reference_set: true
+    references:
+      - "Greenland 1995, Epidemiology 6:637 (interpretation of continuous exposures)"
+  - id: grouping.optimal
+    dimension: grouping
+    value: optimal
+    label: "Data-driven optimal cutpoint (maxstat/log-rank scan)"
+    contrast_type: dichotomous
+    in_reference_set: false
+    references:
+      - "Lausen & Schumacher 1992, Comput Stat Data Anal 13:373 (maximally selected rank statistics)"
+      - "Camp et al. 2004, Clin Cancer Res 10:7252 (X-tile)"
+  - id: grouping.percentile_custom
+    dimension: grouping
+    value: percentile_custom
+    label: "Arbitrary hand-picked percentile"
+    contrast_type: dichotomous
+    in_reference_set: false
+    references:
+      - "Altman & Royston 2006, BMJ 332:1289 (continuous predictors should not be dichotomised)"
+  - id: normalization.rma
+    dimension: normalization
+    value: rma
+    label: "Microarray RMA"
+    in_reference_set: true
+    references:
+      - "Irizarry et al. 2003, Biostatistics 4:249"
+  - id: normalization.vst
+    dimension: normalization
+    value: vst
+    label: "RNA-seq variance-stabilising transform"
+    in_reference_set: true
+    references:
+      - "Anders & Huber 2010, Genome Biol 11:R106"
+  - id: normalization.tpm
+    dimension: normalization
+    value: tpm
+    label: "Transcripts per million"
+    in_reference_set: true
+    references:
+      - "Wagner et al. 2012, Theory Biosci 131:281"
+  - id: normalization.fpkm
+    dimension: normalization
+    value: fpkm
+    label: "FPKM"
+    in_reference_set: false
+    references:
+      - "Mortazavi et al. 2008, Nat Methods 5:621"
+  - id: normalization.mas5
+    dimension: normalization
+    value: mas5
+    label: "MAS5"
+    in_reference_set: false
+    references:
+      - "Hubbell et al. 2002, Bioinformatics 18:1585"
+  - id: covariates.none
+    dimension: covariates
+    value: none
+    label: "No covariates"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Cox 1972, J R Stat Soc B 34:187 (unadjusted proportional hazards model)"
+  - id: covariates.age_stage
+    dimension: covariates
+    value: age_stage
+    label: "Age + AJCC stage"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Edge et al. 2010, AJCC Cancer Staging Manual (stage is a prespecified prognostic factor)"
+  - id: covariates.age_stage_grade
+    dimension: covariates
+    value: age_stage_grade
+    label: "Age + stage + grade"
+    contrast_type: any
+    in_reference_set: false
+    references:
+      - "Sobin et al. 2009, TNM Classification of Malignant Tumours"
+  - id: sample.all_primary
+    dimension: sample_scope
+    value: all_primary
+    label: "All primary tumours"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "TCGA Research Network 2013, Nat Genet 45:1113 (primary tumour cohort definition)"
+  - id: sample.exclude_neoadjuvant
+    dimension: sample_scope
+    value: exclude_neoadjuvant
+    label: "Exclude neoadjuvant-treated patients"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Sobin et al. 2009, TNM Classification of Malignant Tumours (treatment-naive staging cohorts)"
+  - id: sample.subgroup_stage
+    dimension: sample_scope
+    value: subgroup_stage
+    label: "Post-hoc stage subgroup (I-II or III-IV)"
+    contrast_type: any
+    in_reference_set: false
+    references:
+      - "Wang et al. 2007, JAMA 298:1455 (subgroup analyses require prespecification)"
+  - id: followup.none
+    dimension: followup_cap
+    value: none
+    label: "Full available follow-up"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Kaplan & Meier 1958, J Am Stat Assoc 53:457"
+  - id: followup.5y
+    dimension: followup_cap
+    value: 5y
+    label: "Administrative 5-year follow-up cap"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Altman et al. 1995, J Natl Cancer Inst 87:1234 (5-year survival reporting convention)"
+  - id: followup.custom
+    dimension: followup_cap
+    value: custom
+    label: "Outcome-chosen follow-up truncation (2/3/10 years)"
+    contrast_type: any
+    in_reference_set: false
+    references:
+      - "Altman et al. 1995, J Natl Cancer Inst 87:1234"
+  - id: endpoint.declared
+    dimension: endpoint
+    value: declared
+    label: "Endpoint declared in the claim"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Hudis et al. 2007, J Natl Cancer Inst 99:1459 (endpoint definitions)"
+  - id: endpoint.switch
+    dimension: endpoint
+    value: switch
+    label: "Report the most favourable available endpoint"
+    contrast_type: any
+    in_reference_set: false
+    references:
+      - "Hudis et al. 2007, J Natl Cancer Inst 99:1459"
+  - id: probe.max_mean
+    dimension: probe_mapping
+    value: max_mean
+    label: "Probe with maximum mean expression"
+    contrast_type: any
+    in_reference_set: true
+    references:
+      - "Miller et al. 2011, Cancer Inform 10:1 (probe summarisation)"
+  - id: probe.sig
+    dimension: probe_mapping
+    value: sig
+    label: "Probe selected by association significance"
+    contrast_type: any
+    in_reference_set: false
+    references:
+      - "Miller et al. 2011, Cancer Inform 10:1"
