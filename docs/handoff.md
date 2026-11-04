@@ -103,8 +103,11 @@ cat reports/P4_metrics_v2.json
 - Do not rerun P1 on the 4,025 files without `--cache-dir
   data/processed/2026-11-01/p1_cache`; it would re-spend the extraction budget.
 - Keep concurrency at 10–20; 30 workers caused a 503 retry storm.
-- `secrets/llm.env` and `secrets/ncbi.env` hold exposed keys; rotate them and
-  never commit `secrets/`.
+- Credential rotation (2026-11-04): the gateway key in `secrets/llm.env` was
+  replaced and the old key set inactive at the gateway (verified 401); the
+  grader token was regenerated. `~/.codex/config.toml` uses the new gateway
+  key. The NCBI key still needs rotation in the NCBI account settings. Never
+  commit `secrets/`.
 - The API is only reachable inside operator-opened windows. A closed window
   returns 503; every call retries 5× with backoff, which is why an unguarded
   run can idle for 40 minutes. The preflight prevents that now.
