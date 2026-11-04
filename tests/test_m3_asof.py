@@ -4,6 +4,8 @@ from __future__ import annotations
 from datetime import date
 from types import SimpleNamespace
 
+import pytest
+
 from cbi.m3.asof import add_years
 from cbi.m3.features import ContextFeatureBuilder
 from cbi.m3.graph import author_clusters
@@ -94,7 +96,7 @@ def test_lab_history_is_leave_one_out_and_truncated():
     builder = _builder(papers, claims, gts)
     features = builder.build(claims[0], date(2021, 1, 1))
     assert features.lab_historical_n == 5
-    assert features.lab_historical_replication_rate == (0.5 + 0.6 + 0.7 + 0.8 + 0.9) / 5
+    assert features.lab_historical_replication_rate == pytest.approx((0.5 + 0.6 + 0.7 + 0.8 + 0.9) / 5)
 
     # Fewer than five eligible prior claims: the field must stay null.
     builder_short = _builder(papers[:5], claims[:5], {k: gts[k] for k in gts if k in {f"c{i}" for i in range(5)}})

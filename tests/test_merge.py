@@ -143,7 +143,7 @@ def test_worker_cannot_request_non_dev_roles(root):
 def test_audit_rejects_scope_and_assay_drift(root):
     from cbi.m1.hgnc import HGNCResolver
 
-    resolver = HGNCResolver(root / "data" / "raw" / "hgnc" / "hgnc_complete.tsv")
+    resolver = HGNCResolver(Path(__file__).parent / "fixtures" / "hgnc_mini.tsv")
     base = _claim()
     ihc = base.model_copy(deep=True)
     ihc.reported_choices.normalization = "IHC"
