@@ -63,7 +63,7 @@ provider API window.
 | P1 | Not accepted | 4,025 papers → 531 valid claims; yield 13.2% (spec flags <20%), audit pass 52.1% |
 | P2 | Not accepted | 391 label-eligible claims; positive control passes, negative control fails (0.278) |
 | P3 | Pass (formal) | 496/496 coverage, mean field coverage 0.540 |
-| P4 | **Pending** | v1 AUC 0.453 is invalid (truncated input); v2 built and cached, not scored |
+| P4 | **Pending** | v1 AUC 0.453 is invalid (truncated input); v2 documents built, 0/391 scores cached |
 | P5 | Pass | 7/7 isolation checks, detector-independent |
 | P6 | Invalid | Ran against the v1 near-chance detector; do not cite |
 | P7 | Implemented | Three-cycle control flow tested offline; live acceptance pending P4 v2 |
