@@ -5,6 +5,7 @@ type: software
 authors:
   - name: "compbio-claim-inflation contributors"
 license: MIT
+repository-code: "https://github.com/w23x0/compbio-claim-inflation"
 keywords:
   - computational biology
   - reproducibility

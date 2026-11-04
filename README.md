@@ -77,7 +77,7 @@ Details and artifact paths: [`docs/status.md`](docs/status.md),
 Python 3.11+.
 
 ```bash
-git clone <repo-url> compbio-claim-inflation
+git clone https://github.com/w23x0/compbio-claim-inflation.git
 cd compbio-claim-inflation
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[test]"          # add plot,api for figures and the HTTP grader
